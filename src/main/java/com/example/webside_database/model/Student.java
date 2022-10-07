@@ -46,4 +46,14 @@ public class Student {
   public void setGender(boolean gender) {
     this.gender = gender;
   }
+
+  @Override
+  public String toString() {
+    return "Student{" +
+        "id=" + id +
+        ", name='" + name + '\'' +
+        ", Email='" + Email + '\'' +
+        ", gender=" + gender +
+        '}';
+  }
 }
