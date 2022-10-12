@@ -53,18 +53,20 @@ public class StudentsRepository {
 
       if (resultSet.next()) {
         return new Student(
-            resultSet(Student.getInt("id")),
-            resultSet(Student.getString("name")),
-            resultSet(Student.getString("emil")),
-            resultSet(Student.getBoolean("gender"))
+            resultSet.getInt("id"),
+            resultSet.getString("name"),
+            resultSet.getString("email"),
+            resultSet.getBoolean("gender")
         );
+
 
       }
 
-      return null;
+
 
     } catch (SQLException e) {
       e.printStackTrace();
     }
+    return null;
   }
 }

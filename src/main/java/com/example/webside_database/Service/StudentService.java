@@ -1,6 +1,9 @@
 package com.example.webside_database.Service;
 
 import com.example.webside_database.Repository.StudentsRepository;
+import com.example.webside_database.model.Student;
+
+import java.util.List;
 
 public class StudentService {
 
