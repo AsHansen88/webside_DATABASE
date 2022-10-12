@@ -8,6 +8,7 @@ public class Main {
     StudentsRepository repo = new StudentsRepository();
 
     System.out.println(repo.getAllStudents());
+    System.out.println(repo.getStudent(1));
 
   }
 

@@ -20,19 +20,19 @@ public class StudentsRepository {
 
     List<Student> students = new ArrayList<>();
 
-    try{
-    PreparedStatement psts = conn.prepareStatement("SELECT * FROM student2");
-    ResultSet resultSet = psts.executeQuery();
+    try {
+      PreparedStatement psts = conn.prepareStatement("SELECT * FROM student2");
+      ResultSet resultSet = psts.executeQuery();
 
-    while (resultSet.next()){
+      while (resultSet.next()) {
 
-      students.add(new Student(
-          resultSet.getInt("id"),
-          resultSet.getString("name"),
-          resultSet.getString("Email"),
-          resultSet.getBoolean("gender")
-      ));
-    }
+        students.add(new Student(
+            resultSet.getInt("id"),
+            resultSet.getString("name"),
+            resultSet.getString("Email"),
+            resultSet.getBoolean("gender")
+        ));
+      }
 
     } catch (SQLException e) {
       throw new RuntimeException(e);
@@ -41,5 +41,30 @@ public class StudentsRepository {
     return students;
   }
 
+  public Student getStudent(int id) {
 
+    PreparedStatement psts = null;
+    try {
+      psts = conn.prepareStatement("SELECT * FROM student2 WHERE id = ?");
+
+
+      psts.setInt(1, id);
+      ResultSet resultSet = psts.executeQuery();
+
+      if (resultSet.next()) {
+        return new Student(
+            resultSet(Student.getInt("id")),
+            resultSet(Student.getString("name")),
+            resultSet(Student.getString("emil")),
+            resultSet(Student.getBoolean("gender"))
+        );
+
+      }
+
+      return null;
+
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+  }
 }
