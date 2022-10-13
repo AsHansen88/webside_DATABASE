@@ -15,6 +15,12 @@ public class Student {
     this.gender = gender;
   }
 
+  public Student(String name, String email, boolean gender) {
+    this.name = name;
+    Email = email;
+    this.gender = gender;
+  }
+
   public int getId() {
     return id;
   }
