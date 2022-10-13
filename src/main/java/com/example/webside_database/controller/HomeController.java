@@ -24,7 +24,7 @@ public class HomeController {
       System.out.println(req.getParameter("name"));
       System.out.println(req.getParameter("email"));
       System.out.println(req.getParameter("gender"));
-    return "index";
+    return "redirect:/";
 
     }
 
