@@ -69,4 +69,21 @@ public class StudentsRepository {
     }
     return null;
   }
+
+  public void create (Student student) {
+    try {
+      psts = conn.prepareStatement("INSERT INTO Student(name, email, gender)" "VALUES (?,?,?)");
+      psts.SetString(1, Student.Getname());
+      psts.SetString(2, Student.Getemail());
+      psts.Setboolean(3, Student.isgender());
+      psts.executeUpdate();
+
+    }catch (SQLException e) {
+      e.printStackTrace();
+    }
+
+
+
+  }
+
 }
