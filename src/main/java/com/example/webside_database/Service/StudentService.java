@@ -17,16 +17,20 @@ public class StudentService {
   public Student getStudent(int id){
     return repo.getStudent(id);
   }
-  boolean gender = false;
 
-  if(req.getparameter("gender") == "mand")
-   gender = true;
+
+
 
   public void create(WebRequest req) {
-    Student student = new Student(req.getParameter("name")),
-        req.getParameter("Email"),
-    gender;
-  };
+    boolean gender = false;
 
-  repo.create(Student)
+    if (req.getParameter("gender") == "mand"){
+      gender = true;
+  }
+    Student student = new Student(req.getParameter("name"),
+        req.getParameter("Email"),
+        gender);
+  }
+
+  repo.create(student);
 }
